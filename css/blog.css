@@ -9,3 +9,15 @@
         border-radius: 5px;
     }
 }
+
+.post_header {
+    margin-top: 0;
+}
+
+.post_preview {
+    margin: 0;
+}
+
+.breadcrumbs {
+    margin-right: 0;
+}
