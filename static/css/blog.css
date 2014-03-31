@@ -1,0 +1,23 @@
+#container {
+    margin: 15px 30px;
+}
+@media (min-width: 768px) {
+    #headerImage {
+        background: url('../img/header.png');
+        background-size:cover;
+        margin: 0 0 10px 0;
+        border-radius: 5px;
+    }
+}
+
+.post_header {
+    margin-top: 0;
+}
+
+.post_preview {
+    margin: 0;
+}
+
+.breadcrumbs {
+    margin-right: 0;
+}
