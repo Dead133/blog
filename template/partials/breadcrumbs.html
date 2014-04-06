@@ -1,9 +1,16 @@
+{% load staticfiles %}
 <div class="row breadcrumbs" style="margin-right: 0"> <!--Breadcrumbs-->
     <div class="col-md-12">
         <ol class="breadcrumb">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Library</a></li>
-            <li class="active">Data</li>
+            {% for breadcrumb in breadcrumbs %}
+                {% if breadcrumb.active %}
+                     <li class="active">{{ breadcrumb.title }}</li>
+                {% else %}
+                    <li>
+                        <a href="{{ breadcrumb.link }}">{{ breadcrumb.title }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
         </ol>
     </div>
 </div> <!--Breadcrumbs-->

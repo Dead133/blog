@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Dead's blog</title>
+    <title>{% block title %}Dead's blog{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
     <link href="{% static "css/blog.css" %}" rel="stylesheet">
@@ -18,9 +18,12 @@
 
                 <div class="col-md-9"> <!--Left side-->
 
-                    {% include "partials/breadcrumbs.html" %}
+                    {% if breadcrumbs %}
+                        {% include "partials/breadcrumbs.html" %}
+                    {% endif %}
 
-                    {% include "partials/content.html" %}
+                    {% block content %}
+                    {% endblock %}
 
                 </div>
 

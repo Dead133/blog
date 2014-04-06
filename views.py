@@ -26,6 +26,27 @@ def hours_ahead(request, offset):
 
 
 def home(request):
-    template = get_template('template.html')
-    html = template.render(Context({}))
+    template = get_template('layout.html')
+    breadcrumbs = [
+        {
+            'title': 'Home',
+            'link': '/',
+            'active': False,
+        },
+        {
+            'title': 'Posts',
+            'link': '/posts/',
+            'active': False,
+        },
+        {
+            'title': 'Installing LAMP in Ubuntu 12.04',
+            'link': '#',
+            'active': True,
+        },
+    ]
+    context = Context({
+        'breadcrumbs': breadcrumbs
+    })
+
+    html = template.render(context)
     return HttpResponse(html)
