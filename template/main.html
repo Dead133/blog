@@ -1,0 +1,67 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dead's blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
+    <link href="{% static "css/blog.css" %}" rel="stylesheet">
+</head>
+<body>
+<div id="container" class="container-fluid">
+
+    {% include "partials/header.html" %}
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+
+                <div class="col-md-9"> <!--Left side-->
+
+                    {% include "partials/breadcrumbs.html" %}
+
+                    {% include "partials/content.html" %}
+
+                </div>
+
+                <div class="col-md-3"> <!--Right side-->
+
+                    {% include "partials/latest_block.html" %}
+
+                    {% include "partials/tag_cloud.html" %}
+
+                    <div class="row">
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include "partials/footer.html" %}
+    <!-- include footer !-->
+
+</div>
+
+
+<script src="{% static "js/jquery-1.11.0.min.js" %}"></script>
+<script src="{% static "js/bootstrap.min.js" %}"></script>
+<script src="{% static "js/jquery.tagcanvas.min.js" %}"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        if( ! $('#myCanvas').tagcanvas({
+            textColour : '#ffffff',
+            reverse: true,
+            outlineThickness : 1,
+            maxSpeed : 0.03,
+            depth : 0.75
+        })) {
+            // TagCanvas failed to load
+            $('#myCanvasContainer').hide();
+        }
+        // your other jQuery stuff here...
+    });
+</script>
+</body>
+</html>
