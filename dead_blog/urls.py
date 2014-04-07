@@ -3,16 +3,19 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
-from views import home
-from views import hello
-from views import current_datetime
-from views import hours_ahead
+
+from blog.views import post_list
+from blog.views import post
+from blog.views import portfolio
+from blog.views import contact
+from blog.views import about
 
 
 urlpatterns = patterns('',
-                       url(r'^$', home),
-                       url(r'^hello/$', hello),
-                       url(r'^current_datetime/$', current_datetime),
-                       url(r'^time/plus/(\d{1,2})/$', hours_ahead),
+                       url(r'^$', post_list),
+                       url(r'^portfolio/$', portfolio),
+                       url(r'^contact/$', contact),
+                       url(r'^about/$', about),
+                       url(r'^([a-zA-Z0-9.-]+)/$', post),
                        url(r'^admin/', include(admin.site.urls)),
                        )
