@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+
+{% block content %}
+    {% for post in posts %}
+        <div class="row post_preview">
+            <a href="{{ post.link }}">
+                <img class="thumbnail col-sm-2" src="{% static post.thumbnail %}" alt="{{ post.title }}">
+            </a>
+            <div class="col-sm-10">
+                <p class="pull-right">{{ post.date }}</p>
+                <h2 class="post_header"><a href="{{ post.link }}">{{ post.title }}</a></h2>
+                <p>{{ post.body }}</p>
+                <p class="pull-left"><a href="{{ post.link }}">Read more...</a></p>
+                <p class="pull-right"><a href="{{ post.link }}">{{ post.comments_count }} comments</a></p>
+            </div>
+        </div>
+    {% endfor %}
+
+{% comment %} Show more posts button, will be replaced with pagination
+    <div class="row more_posts">
+        <div class="col-sm-8 col-sm-offset-2">
+            <button type="button" class="btn btn-default btn-lg btn-block">View more posts</button>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+{% endcomment %}
+{% endblock %}
