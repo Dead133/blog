@@ -22,12 +22,18 @@
                         {% include "partials/breadcrumbs.html" %}
                     {% endif %}
 
-                    {% block content %}
-                    {% endblock %}
-
+                    <div class="col-md-12">
+                        {% block content %}
+                        {% endblock %}
+                    </div>
                 </div>
 
                 <div class="col-md-3"> <!--Right side-->
+
+                    <!-- StackOverflow flair
+                    <a href="http://stackoverflow.com/users/2833644/dead">
+                        <img src="http://stackoverflow.com/users/flair/2833644.png" width="208" height="58" alt="profile for Dead at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for Dead at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
+                    </a>!-->
 
                     {% include "partials/latest_posts.html" %}
 
